@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ScreenSound.Banco;
-internal class ArtistaDAL
+public class ArtistaDAL
 {
     public IEnumerable<Artista> Listar()
     {
