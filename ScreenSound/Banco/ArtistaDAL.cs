@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ScreenSound.Banco;
-public class ArtistaDAL
+internal class ArtistaDAL
 {
     public IEnumerable<Artista> Listar()
     {
@@ -29,6 +29,11 @@ public class ArtistaDAL
             lista.Add(artista);
         }
         return lista;
+
+    }
+    public void Adicionar(Artista artista)
+    {
+
 
     }
 }
