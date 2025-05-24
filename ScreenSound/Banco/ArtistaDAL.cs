@@ -34,6 +34,5 @@ internal class ArtistaDAL
     public void Adicionar(Artista artista)
     {
 
-
     }
 }
