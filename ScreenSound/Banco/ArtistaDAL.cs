@@ -33,6 +33,8 @@ internal class ArtistaDAL
     }
     public void Adicionar(Artista artista)
     {
-
+        Conexao conexao = new Conexao();
+        using var connection = conexao.ObterConexao();
+        connection.Open();
     }
 }
