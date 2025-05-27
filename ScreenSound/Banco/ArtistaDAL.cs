@@ -33,8 +33,9 @@ internal class ArtistaDAL
     }
     public void Adicionar(Artista artista)
     {
-        Conexao conexao = new Conexao();
-        using var connection = conexao.ObterConexao();
+        using var connection = new Conexao().ObterConexao();
         connection.Open();
+        string sqlcommand = "INSERT INTO Artistas (Nome, FotoPerfil, Bio) VALUES (@nome, @perfilPadrao, @bio)";
+        SqlCommand sql = new SqlCommand(sqlcommand, connection);
     }
 }
