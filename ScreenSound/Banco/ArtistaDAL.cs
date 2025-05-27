@@ -37,5 +37,32 @@ internal class ArtistaDAL
         connection.Open();
         string sqlcommand = "INSERT INTO Artistas (Nome, FotoPerfil, Bio) VALUES (@nome, @perfilPadrao, @bio)";
         SqlCommand sql = new SqlCommand(sqlcommand, connection);
+        sql.Parameters.AddWithValue("@nome", artista.Nome);
+        sql.Parameters.AddWithValue("@perfilPadrao", artista.Nome);
+        sql.Parameters.AddWithValue("@bio", artista.Nome);
+        int linhasAfetadas = sql.ExecuteNonQuery();
+        Console.WriteLine(linhasAfetadas);
+    }
+    public void Exluir(Artista artista)
+    {
+        using var connection = new Conexao().ObterConexao();
+        connection.Open();
+        string sqlcommand = "DELETE FROM Artistas WHERE Id = @id";
+        SqlCommand sql = new SqlCommand(sqlcommand, connection);
+        sql.Parameters.AddWithValue("@id", artista.Id);
+        int linhasAfetadas = sql.ExecuteNonQuery();
+        Console.WriteLine(linhasAfetadas);
+    }
+    public void Atualizar(Artista artista) 
+    {
+        using var connection = new Conexao().ObterConexao();
+        connection.Open();
+        string sqlcommand = "UPDATE Artistas SET Nome = @nome, Bio = @bio WHERE Id = @id";
+        SqlCommand sql = new SqlCommand(sqlcommand, connection);
+        sql.Parameters.AddWithValue("@nome", artista.Nome);
+        sql.Parameters.AddWithValue("@perfilPadrao", artista.Nome);
+        sql.Parameters.AddWithValue("@bio", artista.Nome);
+        int linhasAfetadas = sql.ExecuteNonQuery();
+        Console.WriteLine(linhasAfetadas);
     }
 }
