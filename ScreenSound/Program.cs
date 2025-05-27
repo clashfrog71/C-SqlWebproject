@@ -4,13 +4,12 @@ using ScreenSound.Modelos;
 
 try
 {
-    var c = new Conexao();
-    var a = c.Listar();
-    foreach (var b in a)
-    {
-        Console.WriteLine(b);
-    }
+    var Artista = new Artista("Artista", "Bio Artista");
+    var a = new ArtistaDAL();
+    a.Adicionar(Artista);
+    a.Listar().ToList().ForEach(artista => Console.WriteLine(artista.Nome));
 }
+
 catch (Exception e)
 {
     Console.WriteLine(e.Message);
