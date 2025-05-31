@@ -9,7 +9,6 @@ try
     a.Adicionar(Artista);
     a.Listar().ToList().ForEach(artista => Console.WriteLine(artista.Nome));
 }
-
 catch (Exception e)
 {
     Console.WriteLine(e.Message);
