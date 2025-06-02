@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace ScreenSound.Banco;
 
-internal class Conexao
+internal class ScreenSoundContext
 {
     string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=ScreenSound;Integrated Security=True;";
 
