@@ -1,17 +1,20 @@
-﻿using ScreenSound.Modelos;
+﻿using Microsoft.EntityFrameworkCore;
+using ScreenSound.Modelos;
+using System.Data;
 using System.Data.SqlClient;
 
 using System.Diagnostics.CodeAnalysis;
 
 namespace ScreenSound.Banco;
 
-internal class ScreenSoundContext
+internal class ScreenSoundContext : DbContext
 {
-    string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=ScreenSound;Integrated Security=True;";
-
-    public SqlConnection ObterConexao()
+   private string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=ScreenSound;Integrated Security=True;";
+    public DbSet<Artista> Artistas { get; set; }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        return new SqlConnection(connectionString);
+        optionsBuilder.UseSqlServer(connectionString);
     }
+    
     
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace ScreenSound.Banco;
 internal class ArtistaDAL
 {
+
     public IEnumerable<Artista> Listar()
     {
         var lista = new List<Artista>();
@@ -64,5 +65,15 @@ internal class ArtistaDAL
         sql.Parameters.AddWithValue("@bio", artista.Nome);
         int linhasAfetadas = sql.ExecuteNonQuery();
         Console.WriteLine(linhasAfetadas);
+    }
+    public IEnumerable<Artista> listar()
+    {
+        using var context = new ScreenSoundContext();
+        return context.Artistas.ToList();
+    }
+    public Artista? recuperarPeloNome(string nome)
+    {
+        using var context = new ScreenSoundContext();
+        return context.Artistas.FirstOrDefault(a => a.Nome.Equals(nome));
     }
 }
