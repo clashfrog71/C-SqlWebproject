@@ -1,4 +1,4 @@
 ﻿namespace ScreenSound.Banco;
-internal class MusicaDAL
+internal class GenricDAL
 {
 }
