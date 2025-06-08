@@ -7,37 +7,32 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ScreenSound.Banco;
-internal class ArtistaDAL
+internal class ArtistaDAL : GenricDAL<Artista>
 {
     private readonly ScreenSoundContext context;
     public ArtistaDAL(ScreenSoundContext context)
     {
      this.context = context;
     }
-    public IEnumerable<Artista> Listar()
+    public override IEnumerable<Artista> Listar()
     {
        return context.Artistas.ToList();
 
     }
-    public void Adicionar(Artista artista)
+    public override void Adicionar(Artista artista)
     {
         context.Artistas.Add(artista);
         context.SaveChanges();
     }
-    public void Exluir(Artista artista)
+    public override void Excluir(Artista artista)
     {
         context.Artistas.Remove(artista);
         context.SaveChanges();
     }
-    public void Atualizar(Artista artista) 
+    public override void Atualizar(Artista artista)
     {
         context.Artistas.Update(artista);
         context.SaveChanges();
-    }
-    public IEnumerable<Artista> listar()
-    {
-        using var context = new ScreenSoundContext();
-        return context.Artistas.ToList();
     }
     public Artista? recuperarPeloNome(string nome)
     {
