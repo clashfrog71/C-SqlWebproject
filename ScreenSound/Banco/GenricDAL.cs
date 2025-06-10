@@ -27,5 +27,9 @@ internal abstract class GenricDAL <T> where T : class
         context.Set<T>().Add(item);
         context.SaveChanges();
     }
+    public T RecuperarPor(Func<T,bool> condicao)
+    {
+        return context.Set<T>().FirstOrDefault(condicao) ?? throw new InvalidOperationException("Item não encontrado");
+    }
 
 }
