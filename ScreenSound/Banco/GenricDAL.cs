@@ -4,7 +4,7 @@ namespace ScreenSound.Banco;
 internal abstract class GenricDAL <T> where T : class
 {
     protected readonly ScreenSoundContext context;
-    protected GenricDAL(ScreenSoundContext context)
+    public GenricDAL(ScreenSoundContext context)
     {
         this.context = context;
     }
