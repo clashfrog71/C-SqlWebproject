@@ -5,7 +5,7 @@ using ScreenSound.Modelos;
 try
 {
     var Artista = new Artista("Artista", "Bio Artista");
-    var a = new GenericDAL();
+    var a = new GenericDAL(); 
     a.Adicionar(Artista);
     a.Listar().ToList().ForEach(artista => Console.WriteLine(artista.Nome));
 }
