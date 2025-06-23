@@ -3,6 +3,7 @@ using ScreenSound.Modelos;
 using System.Data;
 using System.Data.SqlClient;
 
+
 using System.Diagnostics.CodeAnalysis;
 
 namespace ScreenSound.Banco;
@@ -14,7 +15,7 @@ internal class ScreenSoundContext : DbContext
     public DbSet<Musica> Musicas { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(connectionString);
+        optionsBuilder.UseSqlServer(connectionString).UseLazyProxies();
     }
     
     
